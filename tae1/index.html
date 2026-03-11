@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Gameplay | Game-Tree Search for Connect-4</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>Intelligent Gameplay using Game-Tree Search</h1>
+            <p class="subtitle">An AI-powered Connect-4 Engine</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="problem-statement glass-panel">
+            <h2>1. Industry Problem Context</h2>
+            <p>In the IT industry, the problem of intelligent decision-making in competitive environments appears in:</p>
+            <ul>
+                <li>Game development and opponent AI (e.g., chess engines, strategy games)</li>
+                <li>Automated trading and competitive financial modeling</li>
+                <li>Cybersecurity (adversarial attack/defense simulations)</li>
+                <li>Logistics negotiation and multi-agent resource allocation</li>
+                <li>Decision support systems under uncertainty</li>
+            </ul>
+            <p>The core objective is to maximize the agent's utility (win rate/score) while minimizing the opponent's utility or identifying optimal strategies against rational adversaries.</p>
+        </section>
+
+        <section class="game-section glass-panel">
+            <h2>Interactive Demonstration</h2>
+            <p>Play against the Minimax AI. You are red, the AI is yellow.</p>
+            
+            <div class="game-controls">
+                <div class="status-indicator">
+                    <span id="turn-indicator" class="player-turn">Your Turn (Red)</span>
+                </div>
+                <button id="reset-btn" class="btn">Restart Game</button>
+            </div>
+
+            <div class="board-container">
+                <div id="game-board" class="board">
+                    <!-- Board filled by JS -->
+                </div>
+            </div>
+            
+            <div id="game-over-modal" class="modal hidden">
+                <div class="modal-content glass-panel">
+                    <h2 id="winner-text">You Win!</h2>
+                    <button id="modal-reset-btn" class="btn primary-btn">Play Again</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="solution-statement glass-panel">
+            <h2>7. Real-World Industry Example/Use</h2>
+            <p>This same Game-Tree Search pattern drives modern applications:</p>
+            <ul>
+                <li><strong>Game Studios:</strong> Developing non-player characters (NPCs) that adapt to player skill</li>
+                <li><strong>Financial Tech:</strong> Automated high-frequency trading algorithms acting competitively</li>
+                <li><strong>Defense/Security:</strong> Wargaming simulations and automated red-teaming</li>
+            </ul>
+            <p><strong>Under The Hood:</strong> Built using the Minimax Algorithm with Alpha-Beta Pruning to drastically reduce the search space and evaluate optimal moves instantly.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built for TAE 1 Practical Demonstration</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
