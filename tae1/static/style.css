@@ -234,14 +234,6 @@ body {
     border: none;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
 @media (max-width: 600px) {
     .cell {
         width: 40px;
