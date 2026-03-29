@@ -9,7 +9,7 @@
 ## Executive Summary: The Future of Competitive AI Architectures
 This report outlines the development, implementation, and rigorous bench-testing of an intelligent, game-tree-based Artificial Intelligence capable of optimal gameplay in a competitive multi-agent environment (Connect-4). Beyond serving as a robust academic feasibility study of the Minimax algorithm equipped with Alpha-Beta pruning, this project serves as a foundational prototype for scalable, enterprise-grade decision engines. 
 
-By leveraging advanced heuristics and rigorous state-space evaluation, the AI demonstrated a **100% win-rate against randomized baseline heuristics**—while maintaining millisecond-level execution delays. The latter part of this report transforms this foundational architecture into an investor-ready technology pitch, highlighting how machine-learning-driven adaptive depth limits, decentralized blockchain-verified play, and cloud-distributed training can catapult this technology from a standalone game to a cutting-edge SAAS framework.
+By leveraging advanced heuristics and rigorous state-space evaluation, the AI demonstrated a **100% win-rate against randomized baseline heuristics**—while maintaining millisecond-level execution delays. The project has evolved from a headless computational test into a **fully interactive, cloud-ready Web Application (Flask)** featuring real-time selectable difficulty levels (Depth-based scaling). The latter part of this report transforms this foundational architecture into an investor-ready technology pitch, highlighting how machine-learning-driven adaptive depth limits, decentralized blockchain-verified play, and cloud-distributed training can catapult this technology from a standalone game to a cutting-edge SAAS framework.
 
 ---
 
@@ -48,10 +48,11 @@ The diagram below illustrates a simulation of the core algorithm generated mathe
 
 ## 5. Tools & Technologies in Industry
 The technical stack mirrors standard enterprise prototyping workflows:
-*   **Python 3.10+:** Selected for rapid architectural design and vast mathematical tooling natively available.
+*   **Python 3.10+ (Flask Framework):** Selected for rapid RESTful API generation and executing the backend core logic over HTTP POST routes.
 *   **NumPy:** Relied upon for high-performance vectorized board interactions and instantaneous matrix slice validations. (Faster than standard iterative loop matrices).
+*   **HTML/CSS/Vanilla JS:** Utilized to engineer a premium, reactive Glassmorphism web dashboard.
+*   **Gunicorn:** Implemented as the production-grade WSGI HTTP Server to handle parallel deployment traffic.
 *   **Matplotlib & NetworkX:** Leveraged for abstracting logic graphs into human-readable data reporting systems and visual data science metrics.
-*   **Command Line Interfaces (CLI):** Implemented to guarantee headless, highly efficient test suite runners.
 
 ## 6. Industry-Level Outcome
 To definitively prove the algorithm's viability without human bias, an automated Headless Testing framework (`evaluate.py`) engaged the AI in hundreds of successive matches against baseline logic. The performance met enterprise margins:
@@ -79,11 +80,14 @@ The chart clearly tracks how the Alpha-Beta constraints resulted in blazing fast
 
 ## 8. Implementation & Result
 *(Detail description of implemented project)*
-The codebase was modularized into three core services communicating in tandem: 
+The codebase was modularized into three core services communicating in tandem to power a robust Web Application: 
 
 1. **`connect4.py` (The Environment Generator):** Generates immutable game logic, parses valid columns, and provides instantaneous linear algebraic array masking to check win-states in $O(1)$ block formations.
 2. **`ai.py` (The Intelligence Core):** Houses the highly sophisticated array heuristic function and the recursive `minimax` loop featuring $O(1)$ state copying.
-3. **`evaluate.py` (The Async Testing Suite):** Conducts high-throughput autonomous verification cycles.
+3. **`app.py` & Web Assets (`templates/`, `static/`):** The RESTful API and Web UI. Translates the algorithm into an engaging interactive dashboard. It allows players to inject real-time constraints via a **Difficulty Selector**:
+   - *Low:* Limits `minimax` to Depth 1 (Random/Shallow calculations).
+   - *Medium:* Explores 3 layers deep.
+   - *Difficult:* Mathematically rigorous constraint (Depth 5) exploring thousands of states.
 
 > **Demonstration:**
 > A complete gameplay interface is hosted natively utilizing the implementation. 
