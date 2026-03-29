@@ -12,6 +12,7 @@ const boardEl = document.getElementById('game-board');
 const turnIndicator = document.getElementById('turn-indicator');
 const modal = document.getElementById('game-over-modal');
 const winnerText = document.getElementById('winner-text');
+const difficultySelect = document.getElementById('difficulty-select');
 
 // Initialize DOM Board
 function renderBoardDOM() {
@@ -59,10 +60,11 @@ async function handleColumnClick(col) {
     turnIndicator.className = 'ai-turn';
 
     try {
+        const difficulty = difficultySelect ? difficultySelect.value : 'medium';
         const response = await fetch('/api/move', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ col: col })
+            body: JSON.stringify({ col: col, difficulty: difficulty })
         });
         
         const data = await response.json();

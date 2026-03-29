@@ -21,6 +21,7 @@ def make_move():
     global game_board
     data = request.json
     col = data.get('col')
+    difficulty = data.get('difficulty', 'medium')
     
     # 1. Player Move
     if col is None or not game_board.is_valid_location(col):
@@ -45,8 +46,13 @@ def make_move():
         })
 
     # 2. AI Move
-    # We use depth 5 here to ensure the web request doesn't timeout.
-    col_ai, score = ai.minimax(game_board, 5, -math.inf, math.inf, True)
+    depth_map = {
+        'low': 1,
+        'medium': 3,
+        'difficult': 5
+    }
+    ai_depth = depth_map.get(difficulty, 3)
+    col_ai, score = ai.minimax(game_board, ai_depth, -math.inf, math.inf, True)
     
     if col_ai is not None:
         row_ai = game_board.get_next_open_row(col_ai)
